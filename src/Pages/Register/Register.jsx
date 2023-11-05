@@ -1,5 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import nav_bg from "../../assets/logo/black-bg-banner.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -10,6 +10,11 @@ const Register = () => {
 
   const [registerError, setRegisterError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  console.log("In login page location", location);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -57,7 +62,7 @@ const Register = () => {
           },
         });
           //after login jekhane jabo
-        //   navigate(location?.state ? location.state : "/");
+          navigate(location?.state ? location.state : "/");
 
           setSuccess("Logged In Successfully.");
       })
@@ -84,7 +89,7 @@ const Register = () => {
         },
       });
         //after login jekhane jabo
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
 
         setSuccess("Logged In Successfully.");
     })
@@ -92,7 +97,7 @@ const Register = () => {
       console.error(error);
       setRegisterError("Failed to Login!");
     });
-  }
+  };
 
   
   return (

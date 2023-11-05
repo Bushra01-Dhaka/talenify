@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from "react";
 import auth from "../Firebase/firebase.config";
 
+
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 

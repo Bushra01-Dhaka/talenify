@@ -1,5 +1,5 @@
 import green_img from "../../assets/banner/green-bg.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
@@ -10,8 +10,11 @@ import toast from "react-hot-toast";
 defineElement(lottie.loadAnimation);
 
 const Login = () => {
-  const { createUser } = useContext(AuthContext);
+  const { signIn, googleLogin } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
+  const location = useLocation();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,7 +23,7 @@ const Login = () => {
 
     console.log(email, password);
 
-    createUser(email,password)
+    signIn(email,password)
     .then(result => {
       console.log(result.user);
       toast.success('Logged In Successfully', {
@@ -35,8 +38,7 @@ const Login = () => {
             secondary: '#fff',
           },
         });
-
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch(error => {
           console.error(error);
@@ -44,6 +46,33 @@ const Login = () => {
       })
 
   };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then((result) => {
+      console.log(result.user);
+      toast.error("Logged In Successfully", {
+        style: {
+          border: "1px solid #82CD47",
+          padding: "16px",
+          color: "#82CD47",
+          background: "black",
+        },
+        iconTheme: {
+          primary: "#82CD47",
+          secondary: "#fff",
+        },
+      });
+        //after login jekhane jabo
+        navigate(location?.state ? location.state : "/");
+
+      
+    })
+    .catch((error) => {
+      console.error(error);
+     
+    });
+  }
 
   return (
     <div className="flex flex-col-reverse lg:flex-row items-center ">
@@ -125,8 +154,8 @@ const Login = () => {
             <div className="py-6">
               <p className="text-center"> Or</p>
 
-              <button className="btn btn-primary text-white w-full my-2">
-                <FcGoogle className="text-xl"></FcGoogle> Sign Up with Google
+              <button onClick={handleGoogleLogin} className="btn btn-primary text-white w-full my-2">
+                <FcGoogle className="text-xl"></FcGoogle> Sign In with Google
               </button>
             </div>
           </form>

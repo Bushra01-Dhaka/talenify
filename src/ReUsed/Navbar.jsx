@@ -1,9 +1,24 @@
 import { NavLink } from "react-router-dom";
 import logo from '../assets/logo/logoWhite.png'
 import nav_bg from '../assets/logo/black-bg-banner.svg'
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Navbar = () => {
+
+  const {user,logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
+
     const navItems = (
         <>
           <li>
@@ -78,12 +93,22 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-       
+          {
+            user?   
+          
+            <button onClick={handleLogOut} className="btn-primary text-white rounded btn btn-sm ">
+            Log Out
+          </button>
+          :
+            
           <NavLink to='/login'>
-            <button className="btn-primary text-white rounded btn btn-sm ">
-              Login
-            </button>
-          </NavLink>
+          <button className="btn-primary text-white rounded btn btn-sm ">
+            Login
+          </button>
+        </NavLink>
+          }
+
+       
 
         </>
       );
