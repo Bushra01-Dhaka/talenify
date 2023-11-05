@@ -4,6 +4,8 @@ import nav_bg from "../../assets/logo/black-bg-banner.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+
 
 const Register = () => {
   const { createUser,  googleLogin } = useContext(AuthContext);
@@ -22,8 +24,9 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photo = form.photo.value;
 
-    console.log(name, email, password);
+    console.log(name, email, password, photo);
 
     // register validate
 
@@ -50,6 +53,17 @@ const Register = () => {
     createUser(email,password)
     .then((result) => {
         console.log(result.user);
+
+    //   update profile data
+
+    updateProfile(result.user, {
+        displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+      }).then(() => {
+        console.log("User Updated")
+      })
+
+     
+
         toast.success("Logged In Successfully", {
           style: {
             border: "1px solid #82CD47",
@@ -160,6 +174,21 @@ const Register = () => {
                 required
               />
             </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Photo URL"
+                name="photo"
+                className="input input-bordered"
+                required
+              />
+            </div>
+
+
             <div className="form-control mt-6">
               <button type='submit' className="btn btn-primary text-white">Login</button>
             </div>

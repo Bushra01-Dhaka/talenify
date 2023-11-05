@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyBJxYAx3XLEZZfkEyBT_etefh530XkqwoM",
   authDomain: "talenify.firebaseapp.com",
