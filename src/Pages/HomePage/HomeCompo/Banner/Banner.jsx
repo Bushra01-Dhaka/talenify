@@ -21,7 +21,8 @@ const Banner = () => {
       }}
     >
       <div className="flex flex-col md:flex-row justify-between items-center">
-        <div className="flex-1 my-auto p-8 space-y-4">
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor=".example-selector" 
+                className="flex-1 my-auto p-8 space-y-4">
           <p>Looking for Jobs? Employee?</p>
           <h1 className="text-4xl lg:text-6xl font-bold">
             Search <span className="text-primary">Every job</span>,{" "}
@@ -48,7 +49,7 @@ const Banner = () => {
             <div  className="mx-auto  card  bg-[#1F1717] shadow-xl rounded">
               <figure>
                 <img
-                data-aos="fade-left" data-aos-delay="200" data-aos-anchor=".example-selector" 
+                data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".example-selector" 
                 className="p-8 rounded"
                   src={banner_img}
                   alt="Shoes"
