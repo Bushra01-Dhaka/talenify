@@ -6,6 +6,15 @@ import { defineElement } from "@lordicon/element";
 
 defineElement(lottie.loadAnimation);
 
+const handleLogin = e => {
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+
+  console.log(email,password);
+};
+
 const Login = () => {
   return (
     <div className="flex flex-col-reverse lg:flex-row items-center ">
@@ -43,7 +52,7 @@ const Login = () => {
               }}
             ></lord-icon></span>
           </h1>
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
