@@ -71,7 +71,7 @@ const Register = () => {
     googleLogin()
     .then((result) => {
       console.log(result.user);
-      toast.success("Logged In Successfully", {
+      toast.error("Logged In Successfully", {
         style: {
           border: "1px solid #82CD47",
           padding: "16px",
@@ -156,7 +156,7 @@ const Register = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary text-white">Login</button>
+              <button type='submit' className="btn btn-primary text-white">Login</button>
             </div>
 
             {registerError && (
