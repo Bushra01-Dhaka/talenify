@@ -5,6 +5,7 @@ import AddJobs from "../Pages/AddJobs/AddJobs";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Error from "../Pages/Error/Error";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/addJobs',
-          element: <AddJobs></AddJobs>
+          element: <PrivateRoutes><AddJobs></AddJobs></PrivateRoutes>
         },
         {
           path:'/login',
