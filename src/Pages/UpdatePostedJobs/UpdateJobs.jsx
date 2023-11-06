@@ -7,7 +7,7 @@ import update_bg from "../../assets/banner/lightColor-bg.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const UpdateJobs = () => {
@@ -15,9 +15,15 @@ const UpdateJobs = () => {
     Aos.init();
   }, []);
 
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  console.log(location)
+
   const { user } = useContext(AuthContext);
   const email = user.email;
   console.log("Update Product: ", email);
+
 
   const jobs = useLoaderData();
   console.log("updated: ", jobs);
@@ -57,13 +63,13 @@ const UpdateJobs = () => {
         .then(res => res.json())
         .then(data => {
           console.log(data);
-          if(data.insertedId)
+          if(data.modifiedCount > 0)
           {
             toast.success("Job Updated Successfully", {
               position: "top-right",
             });
             
-            // navigate("/postedJobs");
+            navigate("/postedJobs");
     
           }
         })

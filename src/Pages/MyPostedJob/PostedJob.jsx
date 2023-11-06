@@ -3,10 +3,12 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types';
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 
-const PostedJob = ({ job }) => {
+const PostedJob = ({ job,postedJobs ,setPostedJobs}) => {
   const {
     _id,
     jobPosterEmail,
@@ -17,6 +19,36 @@ const PostedJob = ({ job }) => {
     minPrice,
     maxPrice,
   } = job;
+
+  const handleDelete = _id => {
+           console.log(_id);
+           Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#FF3811",
+            cancelButtonColor: "#ED7D31",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+            //   Swal.fire("Deleted!", "Service has been deleted.", "success");
+      
+              fetch(`http://localhost:5000/jobs/${_id}`, {
+                method: 'DELETE'
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                  if (data.deletedCount > 0) {
+                    toast.success("Deleted successfully");
+                  const remaining = postedJobs.filter(items => items._id !== _id);
+                  setPostedJobs(remaining);
+                  }
+                });
+            }
+          });
+  }
 
  
 
@@ -60,7 +92,9 @@ const PostedJob = ({ job }) => {
           <div className="flex flex-row lg:flex-col gap-4">
            <Link to={`/updatePostedJobs/${_id}`}><FaEdit className="text-3xl text-primary"></FaEdit></Link>
            
+            <button onClick={() => handleDelete(_id)}>
             <AiTwotoneDelete className="text-3xl text-accent"></AiTwotoneDelete>
+            </button>
 
           </div>
         </div>
@@ -70,7 +104,9 @@ const PostedJob = ({ job }) => {
 };
 
 PostedJob.propTypes = {
-    job: PropTypes.object.isRequired
+    job: PropTypes.object.isRequired,
+    postedJobs: PropTypes.array,
+    setPostedJobs: PropTypes.func
 }
 
 export default PostedJob;

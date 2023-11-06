@@ -50,7 +50,13 @@ const MyPostedJobs = () => {
       </div>
       <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="800" className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 lg:px-0 my-20">
         {postedJobs.map((job) => (
-          <PostedJob key={job._id} job={job}></PostedJob>
+          <PostedJob 
+          key={job._id} 
+          job={job}
+          postedJobs={postedJobs}
+          setPostedJobs={setPostedJobs}
+
+          ></PostedJob>
         ))}
       </div>
     </div>
