@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 
 const PostedJob = ({ job }) => {
   const {
+    _id,
     jobPosterEmail,
     job_title,
     deadline,
@@ -52,12 +53,12 @@ const PostedJob = ({ job }) => {
             <p>Category: <span className="text-primary font-semibold">{category}</span></p>
             <p>Contact Email: <span className="text-primary font-semibold">{jobPosterEmail}</span></p>
             <p>Minimum Price: <span className="text-primary font-semibold">${minPrice}</span></p>
-            <p>Maximum Price: <span className="text-primary font-semibold">${minPrice}</span></p>
+            <p>Maximum Price: <span className="text-primary font-semibold">${maxPrice}</span></p>
             <p>Deadline: <span className="text-primary font-semibold">{deadline}</span></p>
           </div>
 
           <div className="flex flex-row lg:flex-col gap-4">
-            <FaEdit className="text-3xl text-primary"></FaEdit>
+           <Link to={`/updatePostedJobs/${_id}`}><FaEdit className="text-3xl text-primary"></FaEdit></Link>
            
             <AiTwotoneDelete className="text-3xl text-accent"></AiTwotoneDelete>
 
