@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // import { useLocation, useNavigate } from "react-router-dom";
 
@@ -18,9 +19,10 @@ const AddJobs = () => {
     Aos.init();
   }, []);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const location = useLocation();
+  const location = useLocation();
+  console.log(location)
 
   const handleAddProduct = e => {
     e.preventDefault();
@@ -60,6 +62,9 @@ const AddJobs = () => {
         toast.success("Job Added Successfully", {
           position: "top-right",
         });
+        
+        navigate("/postedJobs");
+
       }
     })
 
@@ -179,11 +184,13 @@ const AddJobs = () => {
           </div>
 
           <div className="form-control mt-6">
+          
           <input
             className="btn btn-primary btn-block rounded my-8  mx-4 text-white"
             type="submit"
             value="Add Jobs"
           />
+          
         </div>
 
         </form>

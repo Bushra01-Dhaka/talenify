@@ -28,9 +28,10 @@ const Footer = () => {
         </nav>
         <nav>
           <header className="footer-title">Legal</header>
-          <a className="link link-hover">Terms of use</a>
+          <a href="https://storyset.com/business">Illustrations by Storyset</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
+          <a href="https://lordicon.com/">Lordicon.com</a>
         </nav>
         <form>
           <header className="footer-title">Newsletter</header>

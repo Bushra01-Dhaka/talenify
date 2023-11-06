@@ -8,6 +8,7 @@ import Error from "../Pages/Error/Error";
 import PrivateRoutes from "./PrivateRoutes";
 import MyPostedJobs from "../Pages/MyPostedJob/MyPostedJobs";
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -31,9 +32,12 @@ const router = createBrowserRouter([
           element:<Register></Register>
         },
         {
-          path:'//postedJobs',
+          path:'/postedJobs',
           element:<PrivateRoutes><MyPostedJobs></MyPostedJobs></PrivateRoutes>
-        }
+        },
+
+      
+      
       ]
     },
    
