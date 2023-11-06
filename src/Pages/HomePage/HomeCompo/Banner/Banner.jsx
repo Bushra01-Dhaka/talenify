@@ -1,5 +1,6 @@
-import nav_bg from "../../../../assets/logo/black-bg-banner.svg";
+
 import banner_img from "../../../../assets/banner/bannerImg.webp";
+import light_banner_img from "../../../../assets/banner/lightColor-bg.svg"
 import { Link } from "react-router-dom";
 
 import Aos from "aos";
@@ -12,9 +13,9 @@ const Banner = () => {
   }, []);
   return (
     <div
-      className="h-[500px]"
+      className=" rounded"
       style={{
-        backgroundImage: `url(${nav_bg})`,
+        backgroundImage: `url(${light_banner_img})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -25,13 +26,13 @@ const Banner = () => {
                 className="flex-1 my-auto p-8 space-y-4">
           <p>Looking for Jobs? Employee?</p>
           <h1 className="text-4xl lg:text-6xl font-bold">
-            Search <span className="text-primary">Every job</span>,{" "}
-            <span className="text-primary">Everywhere</span>.
+            Search <span className="text-accent">Every job</span>,{" "}
+            <span className="text-accent">Everywhere</span>.
           </h1>
           <p>
-            - with <span className="text-primary">Talenify</span>
+            - with <span className="font-semibold">Talenify</span>
           </p>
-          <Link><button className="btn btn-primary text-white rounded my-4">Send US Mail</button></Link>
+          <Link><button className="btn btn-neutral text-white rounded my-4">Send US Mail</button></Link>
         </div>
 
         <div
@@ -45,8 +46,8 @@ const Banner = () => {
         >
           <div className="absolute top-0 left-0 w-full h-full bg-green-500 opacity-50"></div>
 
-          <div className="my-[100px] px-4">
-            <div  className="mx-auto  card  bg-[#1F1717] shadow-xl rounded">
+          <div className="my-[80px] px-4">
+            <div  className="mx-auto  card  bg-neutral shadow-xl rounded">
               <figure>
                 <img
                 data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".example-selector" 

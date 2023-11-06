@@ -2,6 +2,10 @@ import { useContext } from "react";
 import addJobs_img from "../../assets/addJobs/addjobs.svg";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -9,6 +13,10 @@ const AddJobs = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
   console.log("Add Product: ", email);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   // const navigate = useNavigate();
 
@@ -72,8 +80,8 @@ const AddJobs = () => {
         <div className="lg:flex-1 ">
         <h1 className="text-4xl font-bold my-4 text-primary px-4">Add Jobs</h1>
 
-        <form className="px-4" onSubmit={handleAddProduct}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full px-4 ">
+        <form data-aos="fade-left" data-aos-delay="200" data-aos-anchor=".example-selector" className="px-4" onSubmit={handleAddProduct}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full px-4 ">
            
             <div className="form-control">
               <label className="label">
@@ -172,7 +180,7 @@ const AddJobs = () => {
 
           <div className="form-control mt-6">
           <input
-            className="btn btn-primary rounded my-8 w-[200px] mx-4 text-white"
+            className="btn btn-primary btn-block rounded my-8  mx-4 text-white"
             type="submit"
             value="Add Jobs"
           />

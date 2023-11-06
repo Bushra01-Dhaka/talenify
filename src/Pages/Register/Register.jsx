@@ -1,10 +1,10 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import nav_bg from "../../assets/logo/black-bg-banner.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
+import register_img from "../../assets/banner/lightColor-bg.svg"
 
 
 const Register = () => {
@@ -118,7 +118,7 @@ const Register = () => {
     <div
       className=""
       style={{
-        backgroundImage: `url(${nav_bg})`,
+        backgroundImage: `url(${register_img})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -127,7 +127,7 @@ const Register = () => {
       <div className="max-w-full md:max-w-3xl mx-auto py-10 px-4 lg:px-0">
         <div className="border-2 border-primary rounded">
           <form onSubmit={handleRegister} className="card-body p-6">
-            <h1 className="text-4xl font-bold text-center">
+            <h1 className="text-4xl text-accent font-bold text-center">
               Register{" "}
               <lord-icon
                 src="https://cdn.lordicon.com/pdwpcpva.json"
@@ -209,7 +209,7 @@ const Register = () => {
             <div className="py-6">
               <p className="text-center"> Or</p>
 
-              <button onClick={handleGoogleLogin} className="btn btn-primary text-white w-full my-2">
+              <button onClick={handleGoogleLogin} className="btn btn-accent text-white w-full my-2">
                 <FcGoogle className="text-xl"></FcGoogle> Sign Up with Google
               </button>
             </div>
@@ -217,7 +217,7 @@ const Register = () => {
           <div className="pb-6 text-center">
             <p>
               Already have an account?{" "}
-              <span className="text-primary font-bold underline">
+              <span className="text-accent font-bold underline">
                 <Link to="/login">Login</Link>
               </span>
             </p>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo/logoWhite.png";
+import logo from "../assets/logo/mainLogo.svg";
 
 const Footer = () => {
   return (
@@ -52,7 +52,7 @@ const Footer = () => {
         </form>
       </footer>
       <div className="text-center py-4">
-         <small className="text-center py-4">Copyright © 2023 - All right reserved by Talenify</small>
+         <small className="text-center text-primary py-4">Copyright © 2023 - All right reserved by Talenify</small>
          </div>
     </div>
   );

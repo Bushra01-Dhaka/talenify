@@ -7,10 +7,18 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 defineElement(lottie.loadAnimation);
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -97,14 +105,14 @@ const Login = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="flex-1  mt-[200px] bg-black mx-4">
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor=".example-selector" className="flex-1  mt-[200px] bg-accent mx-4 shadow-xl rounded">
           <div className="text-primary space-y-4 p-6 my-auto">
-            <h1 className="text-4xl font-bold">New Here?</h1>
+            <h1 className="text-4xl font-bold text-neutral">New Here?</h1>
             <p className="text-white">
               Sign Up and discover a great amount of new opportunities!
             </p>
             <Link to="/register">
-              <button className="btn btn-primary my-4 text-white rounded">
+              <button className="btn btn-neutral my-4 text-white rounded">
                 Sign Up
               </button>
             </Link>
@@ -112,9 +120,9 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="flex-1 p-6 ">
+      <div data-aos="fade-down" data-aos-delay="200" data-aos-anchor=".example-selector" className="flex-1 p-6 ">
         <div>
-          <h1 className="text-4xl font-bold text-center">
+          <h1 className="text-4xl font-bold text-accent text-center">
             Login{" "}
             <span>
               <lord-icon
@@ -166,7 +174,7 @@ const Login = () => {
             <div className="py-6">
               <p className="text-center"> Or</p>
 
-              <button onClick={handleGoogleLogin} className="btn btn-primary text-white w-full my-2">
+              <button onClick={handleGoogleLogin} className="btn btn-accent text-white w-full my-2">
                 <FcGoogle className="text-xl"></FcGoogle> Sign In with Google
               </button>
             </div>

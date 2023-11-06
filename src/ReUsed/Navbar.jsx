@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo/logoWhite.png";
-import nav_bg from "../assets/logo/black-bg-banner.svg";
+import logo_black from "../assets/logo/mainLogo.svg"
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -120,12 +119,12 @@ const Navbar = () => {
   );
   return (
     <div
-      style={{
-        backgroundImage: `url(${nav_bg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
+      // style={{
+      //   backgroundImage: `url(${nav_bg})`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundPosition: "center",
+      //   backgroundSize: "cover",
+      // }}
     >
       <div className="drawer py-4">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -155,7 +154,7 @@ const Navbar = () => {
             </div>
             <div className="flex-1 px-2 mx-2">
               {/* LOGO */}
-              <img className="h-[70px] object-cover" src={logo} alt="" />{" "}
+              <img className="h-[70px] object-cover" src={logo_black} alt="" />{" "}
               <span className="text-primary font-bold">job_hub</span>
             </div>
             <div className="flex-none hidden lg:block">
