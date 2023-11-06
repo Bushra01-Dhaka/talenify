@@ -42,6 +42,18 @@ const Login = () => {
       })
       .catch(error => {
           console.error(error);
+          toast.error('Please provide valid email and password', {
+            style: {
+              border: '1px solid #C70039',
+              padding: '16px',
+              color: '#C70039',
+              background: 'black',
+            },
+            iconTheme: {
+              primary: '#C70039',
+              secondary: '#fff',
+            },
+          });
           
       })
 
@@ -51,7 +63,7 @@ const Login = () => {
     googleLogin()
     .then((result) => {
       console.log(result.user);
-      toast.error("Logged In Successfully", {
+      toast.success("Logged In Successfully", {
         style: {
           border: "1px solid #82CD47",
           padding: "16px",

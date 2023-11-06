@@ -1,19 +1,60 @@
 import { useContext } from "react";
 import addJobs_img from "../../assets/addJobs/addjobs.svg";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+// import { useLocation, useNavigate } from "react-router-dom";
+
 
 const AddJobs = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
-  console.log("Add Product: ", email)
+  console.log("Add Product: ", email);
+
+  // const navigate = useNavigate();
+
+  // const location = useLocation();
 
   const handleAddProduct = e => {
     e.preventDefault();
     const form = e.target;
     const job_title = form.title.value;
     const deadline = form.deadline.value;
-    console.log(email,job_title,deadline)
+    const description = form.description.value;
+    const category = form.category.value;
+    const minPrice = form.minPrice.value;
+    const maxPrice = form.maxPrice.value;
+
+    console.log(email,job_title,deadline, description,category,minPrice,maxPrice);
+
+    const job = {
+      jobPosterEmail : email,
+      job_title,
+      deadline,
+      description,
+      category,
+      minPrice,
+      maxPrice
+    }
+
+
+    fetch(`http://localhost:5000/jobs`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(job),
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.insertedId)
+      {
+        toast.success("Job Added Successfully", {
+          position: "top-right",
+        });
+      }
+    })
+
   }
 
   return (
@@ -23,7 +64,7 @@ const AddJobs = () => {
           <img
             className="w-full"
             src={addJobs_img}
-            alt=""
+            alt="img"
           />
           
         </div>
@@ -31,10 +72,10 @@ const AddJobs = () => {
         <div className="lg:flex-1 ">
         <h1 className="text-4xl font-bold my-4 text-primary px-4">Add Jobs</h1>
 
-        <form className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full px-4 " onSubmit={handleAddProduct}>
-          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full px-4 "> */}
-            {/* 1 */}
-            <div className="">
+        <form className="px-4" onSubmit={handleAddProduct}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full px-4 ">
+           
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -49,7 +90,7 @@ const AddJobs = () => {
               />
             </div>
 
-            <div className="">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Job Title</span>
               </label>
@@ -62,7 +103,7 @@ const AddJobs = () => {
               />
             </div>
 
-            <div className="">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Deadline</span>
               </label>
@@ -75,7 +116,7 @@ const AddJobs = () => {
               />
             </div>
 
-            <div className="">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Description</span>
               </label>
@@ -88,11 +129,12 @@ const AddJobs = () => {
               />
             </div>
 
-            <div className="">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Category</span>
               </label>
-              <select className="select select-bordered w-full max-w-xs rounded">
+              <select type='text' name="category"
+               className="select select-bordered w-full max-w-xs rounded">
                 <option>Web Development</option>
                 <option>Digital Marketing</option>
                 <option>Graphics Design</option>
@@ -100,38 +142,42 @@ const AddJobs = () => {
             </div>
 
             
-            <div className="">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Minimum Price</span>
               </label>
               <input
                 type="number"
                 placeholder="Minimum Price"
-                name="min-price"
+                name="minPrice"
                 className="input input-bordered rounded"
                 required
               />
             </div>
 
-            <div className="">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Maximum Price</span>
               </label>
               <input
                 type="number"
                 placeholder="Maximum Price"
-                name="max-price"
+                name="maxPrice"
                 className="input input-bordered rounded"
                 required
               />
             </div>
  
+          </div>
 
-          {/* </div> */}
+          <div className="form-control mt-6">
+          <input
+            className="btn btn-primary rounded my-8 w-[200px] mx-4 text-white"
+            type="submit"
+            value="Add Jobs"
+          />
+        </div>
 
-          <Link>
-          <button type="submit" className="btn btn-primary rounded my-8 w-[200px] mx-4 text-white">Add Job</button>  
-        </Link>
         </form>
         
         </div>

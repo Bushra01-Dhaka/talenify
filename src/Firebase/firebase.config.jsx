@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJxYAx3XLEZZfkEyBT_etefh530XkqwoM",
-  authDomain: "talenify.firebaseapp.com",
-  projectId: "talenify",
-  storageBucket: "talenify.appspot.com",
-  messagingSenderId: "360345197783",
-  appId: "1:360345197783:web:ba90da3f0cde9af0266492"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env. VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket ,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env. VITE_appId
 };
 
 // Initialize Firebase
