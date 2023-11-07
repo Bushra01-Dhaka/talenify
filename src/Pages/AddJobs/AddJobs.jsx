@@ -148,7 +148,7 @@ const AddJobs = () => {
               </label>
               <select type='text' name="category"
                className="select select-bordered w-full max-w-xs rounded">
-                <option>Web Development</option>
+                <option>web_development</option>
                 <option>Digital Marketing</option>
                 <option>Graphics Design</option>
               </select>
