@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Webdev from "./Webdev";
 
 
 
@@ -15,13 +16,20 @@ const WebDevelopment = () => {
     });
   }, [url]);
 
-  
-
 
 
     return (
-        <div>
-             <h1>Web Development Job Posts{postedJobs.length}</h1>
+        <div className="container mx-auto py-16">
+             {/* <h1>Web Development Job Posts{postedJobs.length}</h1> */}
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+                {
+                    postedJobs.map(jobs => <Webdev 
+                    key={jobs._id}
+                    webJob={jobs}
+                    ></Webdev>)
+                }
+             </div>
+
         </div>
     );
 };

@@ -39,7 +39,7 @@ const Login = () => {
             border: '1px solid #82CD47',
             padding: '16px',
             color: '#82CD47',
-            background: 'black',
+            background: 'white',
           },
           iconTheme: {
             primary: '#82CD47',
