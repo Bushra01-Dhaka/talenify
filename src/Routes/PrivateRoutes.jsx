@@ -13,6 +13,7 @@ const PrivateRoutes = ({children}) => {
     {
         return <div className="h-screen flex justify-center items-center">
             <span className="loading loading-lg loading-spinner text-primary"></span>
+           
         </div> 
 
     }

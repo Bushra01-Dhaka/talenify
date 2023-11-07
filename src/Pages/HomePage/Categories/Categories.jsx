@@ -10,7 +10,7 @@ const Categories = () => {
   return (
     <div className="container bg-base-200">
       <Tabs className="">
-        <TabList className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full lg:w-[60%] mx-auto bg-primary text-white py-16  px-10  rounded">
+        <TabList className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full lg:w-[60%] mx-auto  text-white py-16 bg-white  px-10  rounded">
           <Tab className="outline-none text-xl text-neutral font-bold hover:underline">Web Development
          </Tab>
           <Tab className="outline-none text-xl text-neutral font-bold hover:underline">Digital Marketing</Tab>

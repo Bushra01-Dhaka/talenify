@@ -41,7 +41,7 @@ class Webdev extends Component {
             {description.length > 120 ? (
               <p className="text-sm py-2">
                 {description.slice(0, 120)}
-                <Link
+                <Link to={`/jobDetails/${_id}`}
                   className="
                 text-primary font-bold"
                 >
@@ -54,7 +54,7 @@ class Webdev extends Component {
 
 
              </div>
-            <Link><button className="btn rounded btn-primary text-white">Bid Now</button></Link>
+            <Link to={`/jobDetails/${_id}`}><button className="btn rounded btn-primary text-white">Bid Now</button></Link>
 
             <div className="card-actions justify-end mt-4">
              <BsArrowRepeat onClick={this.handleClick} className="text-3xl text-accent font-bold"></BsArrowRepeat>
@@ -66,11 +66,6 @@ class Webdev extends Component {
         <div>
           <div  className="card h-[400px] shadow-xl">
             <figure>
-              {/* <img
-                className="h-[200px] p-4"
-                src="https://i.ibb.co/ThzhqTG/img-1.jpg"
-                alt="Shoes"
-              /> */}
             </figure>
             <div>
                 <img className="h-[200px] w-[200px] mx-auto" src={logo} alt="" />
