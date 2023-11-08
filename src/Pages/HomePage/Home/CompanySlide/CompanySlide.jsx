@@ -1,7 +1,10 @@
+import Marquee from "react-fast-marquee";
+
 const CompanySlide = () => {
   return (
     <div className="container mx-auto py-8">
       <div className="flex justify-center rounded-box items-center mx-auto">
+      <Marquee className="bg-gray-100" pauseOnHover= {true} speed={100}>
         <div className="">
           <img
             className="h-[50px] w-[150px]  m-4"
@@ -37,7 +40,7 @@ const CompanySlide = () => {
             alt="Pizza"
           />
         </div>
-
+      </Marquee>
       </div>
     </div>
   );

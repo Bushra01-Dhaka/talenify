@@ -98,7 +98,7 @@ const Navbar = () => {
               src={user.photoURL}
               alt=""
             />
-            <p className="text-[12px] ml-2">{user.email}</p>
+            <p className="text-[12px] ml-2">{user.displayName}</p>
           </div>
 
           <button

@@ -8,7 +8,7 @@ import register_img from "../../assets/banner/lightColor-bg.svg"
 
 
 const Register = () => {
-  const { createUser,  googleLogin } = useContext(AuthContext);
+  const {user, setUser, createUser,  googleLogin } = useContext(AuthContext);
 
   const [registerError, setRegisterError] = useState("");
   const [success, setSuccess] = useState("");
@@ -57,12 +57,13 @@ const Register = () => {
     //   update profile data
 
     updateProfile(result.user, {
-        displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+        displayName: name, photoURL: photo
       }).then(() => {
         console.log("User Updated")
+        setUser({...user, displayName: name, photoURL: photo})
       })
 
-     
+     console.log("hehe",user);
 
         toast.success("Logged In Successfully", {
           style: {
