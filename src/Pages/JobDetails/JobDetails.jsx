@@ -1,8 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import details_bg from "../../assets/banner/update-banner.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Subscribe from "../HomePage/Subscribe/Subscribe";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
     const {user} =useContext(AuthContext);
@@ -19,6 +20,59 @@ const JobDetails = () => {
   } = jobs;
 
   const isDisable = user?.email === jobPosterEmail;
+
+  const navigate = useNavigate();
+
+  const handleBidPost = e => {
+         e.preventDefault();
+         const form = e.target;
+         const bidPrice = form.bidPrice.value;
+         const bidDeadline = form.bidDate.value;
+         const bidEmail = form.bidEmail.value;
+         const jobPosterEmail = form.jobPosterEmail.value;
+
+         const bid = {
+          bidJobTitle: job_title,
+          bidPrice,
+          bidDeadline,
+          bidEmail,
+          jobPosterEmail,
+          jobPost_Id: _id
+      }
+
+      console.log("bidInfo: ",bid);
+
+      fetch('http://localhost:5000/bids', {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body:JSON.stringify(bid)
+
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.insertedId)
+      {
+        toast
+        .success("Bid on the project Successfully", {
+          position: "top-right",
+        });
+        
+        navigate("/myBids");
+
+      }
+        
+
+
+      })
+
+
+  }
+
+  
+ 
 
   return (
     <div className="rounded">
@@ -106,7 +160,7 @@ const JobDetails = () => {
                       </button>
                     </form>
                     <div className="myModal">
-                      <form className="card-body">
+                      <form onSubmit={handleBidPost} className="card-body">
                         <div className="form-control">
                           <label className="label">
                             <span className="label-text">Bidding Price(${minPrice}~${maxPrice})</span>
@@ -121,7 +175,7 @@ const JobDetails = () => {
                         </div>
                         <div className="form-control">
                           <label className="label">
-                            <span className="label-text">Deadline</span>
+                            <span className="label-text">Deadline {deadline}</span>
                           </label>
                           <input
                             type="date"
@@ -157,7 +211,7 @@ const JobDetails = () => {
                             type="email"
                             placeholder="buyer email"
                             defaultValue= {jobPosterEmail}
-                            name="bidEmail"
+                            name="jobPosterEmail"
                             className="input input-bordered"
                             required
                             readOnly
