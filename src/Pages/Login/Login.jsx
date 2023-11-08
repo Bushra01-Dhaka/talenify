@@ -107,12 +107,12 @@ const Login = () => {
       >
         <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor=".example-selector" className="flex-1  mt-[200px] bg-accent mx-4 shadow-xl rounded">
           <div className="text-primary space-y-4 p-6 my-auto">
-            <h1 className="text-4xl font-bold text-neutral">New Here?</h1>
+            <h1 className="text-4xl font-bold text-primary">New Here?</h1>
             <p className="text-white">
               Sign Up and discover a great amount of new opportunities!
             </p>
             <Link to="/register">
-              <button className="btn btn-neutral my-4 text-white rounded">
+              <button className="btn btn-primary my-4 text-white rounded">
                 Sign Up
               </button>
             </Link>

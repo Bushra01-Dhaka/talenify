@@ -1,7 +1,7 @@
 
 import Categories from "../Categories/Categories";
+import Features from "../Features/Features";
 import Ban from "../HomeCompo/Banner/Ban";
-import Banner from "../HomeCompo/Banner/Banner";
 import Subscribe from "../Subscribe/Subscribe";
 import CompanySlide from "./CompanySlide/CompanySlide";
 
@@ -13,7 +13,7 @@ const Home = () => {
             <Ban></Ban>
             <CompanySlide></CompanySlide>
             <Categories></Categories>
-           
+            <Features></Features>
             <Subscribe></Subscribe>
             
         </div>

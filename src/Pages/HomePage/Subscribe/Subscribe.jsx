@@ -31,7 +31,7 @@ const Subscribe = () => {
     }
   return (
     <div
-     className="min-h-screen flex flex-col md:flex-row items-center"
+     className="min-h-[80vh] flex flex-col md:flex-row items-center"
       style={{
         backgroundImage: `url(${subs_bg})`,
         backgroundRepeat: "no-repeat",

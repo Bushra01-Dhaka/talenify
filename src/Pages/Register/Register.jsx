@@ -63,7 +63,7 @@ const Register = () => {
         setUser({...user, displayName: name, photoURL: photo})
       })
 
-     console.log("hehe",user);
+     console.log("User",user);
 
         toast.success("Logged In Successfully", {
           style: {
