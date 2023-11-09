@@ -61,6 +61,8 @@ const MyBids = () => {
            {
             myBid.map(bid => <MyBidTableRow 
                 key={bid._id}
+                myBid={myBid}
+                setMyBid={setMyBid}
                 bid={bid}
                 ></MyBidTableRow>)
            }
