@@ -18,6 +18,7 @@ const MyBidTableRow = ({ bid }) => {
       <td>{bidDeadline}</td>
       <td>Pending</td>
       <td><button className="btn btn-sm btn-primary rounded" disabled>Complete</button></td>
+      <td>{jobPosterEmail}</td>
     </tr>
   );
 };

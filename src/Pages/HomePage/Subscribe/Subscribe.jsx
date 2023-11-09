@@ -31,7 +31,7 @@ const Subscribe = () => {
     }
   return (
     <div
-     className="min-h-[80vh] flex flex-col md:flex-row items-center"
+     className="min-h-[40vh] flex flex-col md:flex-row items-center"
       style={{
         backgroundImage: `url(${subs_bg})`,
         backgroundRepeat: "no-repeat",
@@ -39,22 +39,22 @@ const Subscribe = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="flex-1 hero pt-8">
+      <div data-aos="fade-right" data-aos-delay="400" data-aos-anchor=".example-selector" className="lg:flex-1 hero pt-8">
         <div  className="hero-content text-center">
-          <div data-aos="fade-right" data-aos-delay="400" data-aos-anchor=".example-selector" className="max-w-md">
-            <h1 className="text-5xl font-bold">{`Don't`} Wanna miss any job posts?</h1>
+          <div className="max-w-md">
+            <h1 className="text-3xl lg:text-5xl font-bold">{`Don't`} Wanna miss any job posts?</h1>
             <p className="py-6">
             Press the Subscribe button to get notified always.
             </p>
             <div>
             <input type="email" defaultValue={user?.email}  placeholder="your email" className="input input-bordered w-full max-w-xs" />
-            <button onClick={handleSubscribe} className="btn btn-primary rounded ml-2 btn-md">Subscribe</button>
+         <button onClick={handleSubscribe} className="btn btn-primary rounded ml-2 btn-md mt-4 lg:mt-0">Subscribe</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="800"className="flex-1">
+      <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="800"className="lg:flex-1">
          <img
          className="md:h-[500px] mx-auto" 
          src={sub_cover} alt="" />

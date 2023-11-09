@@ -47,11 +47,11 @@ const Banner = () => {
         >
           <div className="absolute top-0 left-0 w-full h-full bg-green-500 opacity-50"></div>
 
-          <div className="my-[80px] px-4">
+          <div  data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".example-selector" className="my-[80px] px-4">
             <div  className="mx-auto  card  bg-transparent shadow-xl rounded-lg">
               <figure>
                 <img
-                data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".example-selector" 
+                
                 className="p-8 rounded-lg"
                   src={banner_img}
                   alt="Shoes"

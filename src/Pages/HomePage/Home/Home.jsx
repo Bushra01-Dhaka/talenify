@@ -9,7 +9,6 @@ import CompanySlide from "./CompanySlide/CompanySlide";
 const Home = () => {
     return (
         <div>
-            {/* <Banner></Banner> */}
             <Ban></Ban>
             <CompanySlide></CompanySlide>
             <Categories></Categories>
