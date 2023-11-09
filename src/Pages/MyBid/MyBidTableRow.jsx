@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const MyBidTableRow = ({ bid }) => {
     const {
         bidJobTitle,
-        bidPrice,
+        // bidPrice,
         bidDeadline,
         bidEmail,
         jobPosterEmail,
-        jobPost_Id: _id
+        // jobPost_Id
     } = bid;
   return (
     <tr className="text-black">

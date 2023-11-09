@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import MyBidTableRow from "./MyBidTableRow";
 import img from '../../assets/addJobs/addjobs.svg'
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const MyBids = () => {
   const { user } = useContext(AuthContext);
@@ -16,11 +18,17 @@ const MyBids = () => {
     });
   }, [url]);
 
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   console.log(myBid);
 
   return (
     <div>
       <div
+      data-aos="zoom-in" data-aos-delay="200"
         className="hero min-h-[40vh] rounded mb-10"
         style={{ backgroundImage: `url(${img})` }}
       >

@@ -14,8 +14,10 @@ const Ban = () => {
     className=" rounded"
     
     >
-      <div className="flex flex-col md:flex-row justify-between items-center">
-        <div data-aos="fade-up" data-aos-delay="200" data-aos-anchor=".example-selector" 
+      <div 
+      data-aos="zoom-out" data-aos-delay="200" data-aos-anchor=".example-selector"
+       className="flex flex-col md:flex-row justify-between items-center">
+        <div 
                 className="flex-1 my-auto p-8 space-y-4 ">
           <p>Looking for Jobs? Employee?</p>
           <h1 className="text-4xl lg:text-6xl font-bold">
@@ -36,8 +38,7 @@ const Ban = () => {
           <div className=" px-4">
             <div  className="mx-auto  bg-transparent">
               <figure>
-                <img
-                data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".example-selector" 
+                <img 
                 className="p-8 rounded-lg"
                   src={banner}
                   alt="Shoes"

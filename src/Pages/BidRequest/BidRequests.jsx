@@ -5,27 +5,60 @@ import { useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import bg_img from "../../assets/banner/update-img.svg";
 import BidReqTable from "./BidReqTable";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const BidRequests = () => {
-  const { user } = useContext(AuthContext);
+   const { user } = useContext(AuthContext);
+
+   useEffect(() => {
+    Aos.init();
+  }, []);
+
+  // const [myPost, setMyPost] = useState([]);
+  // const jobUrl = `http://localhost:5000/jobs?email=${user?.email}`;
+  // useEffect(() => {
+  //   axios.get(jobUrl).then((res) => {
+  //     setMyPost(res.data);
+  //   });
+
+  // },[jobUrl]);
+  // console.log(myPost)
+
+  const [filterJobBids, setFilterJobBids] = useState([]);
+
 
   const [allBids, setAllBids] = useState([]);
   const url = `http://localhost:5000/bids`;
   useEffect(() => {
     axios.get(url).then((res) => {
       setAllBids(res.data);
+
+      const myPostedJobBids = allBids.filter(
+        (data) => data.jobPosterEmail === user?.email);
+        
+        setFilterJobBids(myPostedJobBids);
+
+
+
     });
-  }, [url]);
+  }, [url, user?.email]);
 
   
 
-  const myPostedJobBids = allBids.filter(
-    (data) => data.jobPosterEmail === user?.email
-  );
+  // const myPostedJobBids = allBids.filter(
+  //   (data) => data.jobPosterEmail === user?.email);
+    
+  //   setFilterJobBids(myPostedJobBids);
 
 
 
-  console.log(myPostedJobBids);
+
+  
+
+  // console.log(myPostedJobBids);
+
+  console.log(filterJobBids);
 
 
   
@@ -36,6 +69,7 @@ const BidRequests = () => {
     <div className="pb-10">
       {/* <h1>My Bid Request Page {myPostedJobBids.length} </h1> */}
       <div
+        data-aos="slide-up" data-aos-delay="200"
         className="hero min-h-[60vh] rounded mb-10"
         style={{ backgroundImage: `url(${bg_img})` }}
       >
@@ -43,7 +77,7 @@ const BidRequests = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">
-              My Job post control panel{" "}
+             Bid Requests control panel{" "}
             </h1>
             <p className="mb-5"></p>
           </div>
@@ -66,8 +100,12 @@ const BidRequests = () => {
             </tr>
           </thead>
           <tbody>
-            {myPostedJobBids.map((bid,index) => (
-              <BidReqTable key={index} bid={bid}
+            {filterJobBids.map((bid,index) => (
+              <BidReqTable 
+              filterJobBids={filterJobBids}
+              setFilterJobBids={setFilterJobBids}
+              key={index} 
+              bid={bid}
               ></BidReqTable>
             ))}
           </tbody>

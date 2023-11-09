@@ -14,7 +14,7 @@ const Features = () => {
         Aos.init();
       }, []);
   return (
-    <div className="container mx-auto ">
+    <div data-aos="zoom-in" data-aos-delay="200" data-aos-anchor=".example-selector" className="container mx-auto ">
       <div className="flex flex-col lg:flex-row items-center">
         <div className="lg:flex-1 p-8 my-6">
           <h1 className="text-4xl text-neutral font-bold">
@@ -66,6 +66,7 @@ const Features = () => {
         </div>
 
         <div
+        
           style={{
             backgroundImage: `url(${register_img})`,
             backgroundRepeat: "no-repeat",
@@ -76,8 +77,8 @@ const Features = () => {
         >
           <div className="grid grid-cols-3 gap-2">
             <div className=" col-span-2">
-              <div data-aos="fade-left" data-aos-delay="200" data-aos-anchor=".example-selector" className="card bg-base-100 shadow-xl rounded-lg">
-                <div className="card-body">
+              <div className="card bg-base-100 shadow-xl rounded-lg">
+                <div  className="card-body">
                   <div className="flex items-center gap-4"> 
                     <div className="avatar">
                       <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -101,7 +102,7 @@ const Features = () => {
 
             <div className="col-span-2">
               <div className="bg-white grid-span-2 rounded-lg">
-                <div data-aos="fade-right" data-aos-delay="200" data-aos-anchor=".example-selector" className="card bg-base-100 shadow-xl rounded-lg">
+                <div className="card bg-base-100 shadow-xl rounded-lg">
                   <div className="card-body rounded-lg">
                   <div className="flex items-center gap-4"> 
                     <div  className="avatar">
