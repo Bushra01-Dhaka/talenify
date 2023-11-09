@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { useEffect } from "react";
 import auth from "../Firebase/firebase.config";
+import axios from "axios";
 
 
 export const AuthContext = createContext(null);
@@ -26,9 +27,31 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
       const unSubscribe =  onAuthStateChanged(auth, (currentUser) => {
-            console.log("User in the auth of current state", currentUser);
+        const userEmail = currentUser?.email || user?.email;    
+        const loggedUser = {email: userEmail};
+        console.log("User in the auth of current state", currentUser);
             setUser(currentUser);
             setLoading(false);
+            //if user exist then issue a token
+            if(currentUser)
+            {
+                
+                 axios.post('https://talenify-server.vercel.app/jwt',loggedUser, {withCredentials: true})
+                 .then(res => {
+                    console.log('token response',res.data);
+                 })
+            }
+            else
+            {
+                 axios.post('https://talenify-server.vercel.app/logout',loggedUser, {
+                    withCredentials: true
+                 })
+                 .then(res => {
+                    console.log(res.data);
+                 })
+            }
+
+
         });
         return () => 
         {

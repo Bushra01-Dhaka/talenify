@@ -1,12 +1,12 @@
 # **"Talenify"** - Interactive React website.  :star:
 -------
 ## Live Link: :ghost:
-
+https://talenify.web.app/
 --------------------
 
 A robust platform for both job seekers and job posters, with user-friendly features for exploring, bidding on, and managing job listings in a secure and organized manner.
 ----------------------
- **Talenify** is an interactive react website to have several key functionalities that provide a comprehensive job hunting and posting experience. It is a website where users can see three categories job posts namely Web Development, Digital Marketing and Graphics Design. The user must be logged in to see details of any job post. Logged in user can also bid on a job posts in the details page and after biding, user will redirect to My Bid page, where he/she can get to view all their jpb biding data in a tabular from and also see their job biding status. In this user can also Add Job posts and in MY Posts page they can update and also delete their posts. In the Bid Request page they job poster can see all he data in a tabular form about who have already bid on his/her job post. In this whole project, I have used react jsx, router dom, tailwind css, daisy ui, firebase for authentication and some other extension for front end and for back-end I have used express js and used mongodb database. To securely transmit data between two parties JWT token is also implemented for authorization. 
+ **Talenify** is an interactive react website, have several key functionalities that provide a comprehensive job hunting and posting experience. It is a website where users can see three categories job posts namely Web Development, Digital Marketing and Graphics Design. The user must be logged in to see details of any job post. Logged in user can also bid on a job posts in the details page and after biding, user will redirect to My Bid page, where he/she can get to view all their jpb biding data in a tabular from and also see their job biding status. In this user can also Add Job posts and in MY Posts page they can update and also delete their posts. In the Bid Request page they job poster can see all he data in a tabular form about who have already bid on his/her job post. In this whole project, I have used react jsx, router dom, tailwind css, daisy ui, firebase for authentication and some other extension for front end and for back-end I have used express js and used mongodb database. To securely transmit data between two parties JWT token is also implemented for authorization. 
 
  ------------------------
 

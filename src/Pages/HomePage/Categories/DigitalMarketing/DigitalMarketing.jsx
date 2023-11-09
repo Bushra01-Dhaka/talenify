@@ -6,7 +6,7 @@ import Webdev from "../Webdev/Webdev";
 const DigitalMarketing = () => {
 
     const [postedJobs, setPostedJobs] = useState([]);
-      const url = `http://localhost:5000/jobs/Digital%20Marketing`;
+      const url = `https://talenify-server.vercel.app/jobs/Digital%20Marketing`;
       useEffect(() => {
         axios.get(url).then((res) => {
           setPostedJobs(res.data);

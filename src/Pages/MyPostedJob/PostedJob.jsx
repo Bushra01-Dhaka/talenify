@@ -34,7 +34,7 @@ const PostedJob = ({ job,postedJobs ,setPostedJobs}) => {
             if (result.isConfirmed) {
             //   Swal.fire("Deleted!", "Service has been deleted.", "success");
       
-              fetch(`http://localhost:5000/jobs/${_id}`, {
+              fetch(`https://talenify-server.vercel.app/jobs/${_id}`, {
                 method: 'DELETE'
               })
                 .then((res) => res.json())

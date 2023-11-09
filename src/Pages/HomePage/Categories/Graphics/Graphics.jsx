@@ -5,7 +5,7 @@ import Webdev from "../Webdev/Webdev";
 
 const Graphics = () => {
     const [postedJobs, setPostedJobs] = useState([]);
-    const url = `http://localhost:5000/jobs/Graphics%20Design`;
+    const url = `https://talenify-server.vercel.app/jobs/Graphics%20Design`;
     useEffect(() => {
       axios.get(url).then((res) => {
         setPostedJobs(res.data);

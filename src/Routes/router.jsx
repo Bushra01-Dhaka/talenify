@@ -42,12 +42,12 @@ const router = createBrowserRouter([
         {
           path:'/updatePostedJobs/:id',
           element:<PrivateRoutes><UpdateJobs></UpdateJobs></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/single/${params.id}`)
+          loader: ({params}) => fetch(`https://talenify-server.vercel.app/jobs/single/${params.id}`)
         },
         {
           path:'/jobDetails/:id',
           element:<PrivateRoutes><JobDetails></JobDetails></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/single/${params.id}`)
+          loader: ({params}) => fetch(`https://talenify-server.vercel.app/jobs/single/${params.id}`)
           
         },
         {
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/bidRequest',
-          element:<BidRequests></BidRequests>,
+          element:<PrivateRoutes><BidRequests></BidRequests></PrivateRoutes>,
           
         }
       

@@ -11,9 +11,10 @@ import "aos/dist/aos.css";
 const MyBids = () => {
   const { user } = useContext(AuthContext);
   const [myBid, setMyBid] = useState([]);
-  const url = `http://localhost:5000/bids?email=${user?.email}`;
+  const url = `https://talenify-server.vercel.app/bids?email=${user?.email}`;
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axios.get(url, {withCredentials: 'true'})
+    .then((res) => {
       setMyBid(res.data);
     });
   }, [url]);

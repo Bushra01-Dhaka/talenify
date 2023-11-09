@@ -16,7 +16,7 @@ const MyBidTableRow = ({ bid, myBid, setMyBid }) => {
     //update state for complete button
 
     const handleComplete = (id) => {
-      fetch(`http://localhost:5000/bids/single/${id}`, {
+      fetch(`https://talenify-server.vercel.app/bids/single/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

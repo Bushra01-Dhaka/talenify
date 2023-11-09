@@ -13,9 +13,9 @@ import "aos/dist/aos.css";
 const MyPostedJobs = () => {
   const { user } = useContext(AuthContext);
   const [postedJobs, setPostedJobs] = useState([]);
-  const url = `http://localhost:5000/jobs?email=${user?.email}`;
+  const url = `https://talenify-server.vercel.app/jobs?email=${user?.email}`;
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axios.get(url, {withCredentials: true}).then((res) => {
       setPostedJobs(res.data);
     });
   }, [url]);

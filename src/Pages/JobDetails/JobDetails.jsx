@@ -42,7 +42,7 @@ const JobDetails = () => {
 
       console.log("bidInfo: ",bid);
 
-      fetch('http://localhost:5000/bids', {
+      fetch('https://talenify-server.vercel.app/bids', {
         method: "POST",
         headers: {
           "content-type": "application/json"

@@ -13,7 +13,7 @@ const BidReqTable = ({ bid, filterJobBids, setFilterJobBids }) => {
   } = bid;
 
   const handleConfirm = (id) => {
-    fetch(`http://localhost:5000/bids/single/${id}`, {
+    fetch(`https://talenify-server.vercel.app/bids/single/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const BidReqTable = ({ bid, filterJobBids, setFilterJobBids }) => {
 
   //for reject
   const handleRejected = (id) => {
-    fetch(`http://localhost:5000/bids/single/${id}`, {
+    fetch(`https://talenify-server.vercel.app/bids/single/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

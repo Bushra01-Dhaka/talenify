@@ -8,8 +8,8 @@ const WebDevelopment = () => {
 
    
   const [postedJobs, setPostedJobs] = useState([]);
-//   const url = `http://localhost:5000/jobs?value=web_development`;
-  const url = `http://localhost:5000/jobs/Web%20Development`;
+//   const url = `https://talenify-server.vercel.app/jobs?value=web_development`;
+  const url = `https://talenify-server.vercel.app/jobs/Web%20Development`;
   useEffect(() => {
     axios.get(url).then((res) => {
       setPostedJobs(res.data);

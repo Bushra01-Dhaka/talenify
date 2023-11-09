@@ -53,7 +53,7 @@ const UpdateJobs = () => {
         }
     
     
-        fetch(`http://localhost:5000/jobs/${_id}`, {
+        fetch(`https://talenify-server.vercel.app/jobs/single/${_id}`, {
           method: 'PUT',
           headers: {
             'content-type': 'application/json',

@@ -47,7 +47,7 @@ const AddJobs = () => {
     }
 
 
-    fetch(`http://localhost:5000/jobs`, {
+    fetch(`https://talenify-server.vercel.app/jobs`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

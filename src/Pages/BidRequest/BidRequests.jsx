@@ -15,34 +15,36 @@ const BidRequests = () => {
     Aos.init();
   }, []);
 
-  // const [myPost, setMyPost] = useState([]);
-  // const jobUrl = `http://localhost:5000/jobs?email=${user?.email}`;
-  // useEffect(() => {
-  //   axios.get(jobUrl).then((res) => {
-  //     setMyPost(res.data);
-  //   });
 
-  // },[jobUrl]);
-  // console.log(myPost)
 
   const [filterJobBids, setFilterJobBids] = useState([]);
 
 
   const [allBids, setAllBids] = useState([]);
-  const url = `http://localhost:5000/bids`;
+  const url = `https://talenify-server.vercel.app/bids`;
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axios.get(url)
+    .then((res) => {
       setAllBids(res.data);
 
-      const myPostedJobBids = allBids.filter(
-        (data) => data.jobPosterEmail === user?.email);
+      // const myPostedJobBids = allBids.filter(
+      //   (data) => data.jobPosterEmail === user?.email);
         
-        setFilterJobBids(myPostedJobBids);
+      //   setFilterJobBids(myPostedJobBids);
 
 
 
     });
-  }, [url, user?.email]);
+  }, [url]);
+
+  useEffect(() => {
+    if (user?.email) {
+      const myPostedJobBids = allBids.filter(
+        (data) => data.jobPosterEmail === user.email
+      );
+      setFilterJobBids(myPostedJobBids);
+    }
+  }, [allBids, user?.email]);
 
   
 
