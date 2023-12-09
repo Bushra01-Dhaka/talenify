@@ -1,7 +1,8 @@
 # **"Talenify"** -  :star:
--------
-## Live Link: https://talenify.web.app/
---------------------
+ ### Live Link: https://talenify.web.app/
+
+
+----
 
 - **Talenify** is an interactive react website, for both job seekers and job posters, with user-friendly features for exploring, bidding on, and managing job listings in a secure and organized manner.
 
